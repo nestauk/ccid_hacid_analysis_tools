@@ -1,0 +1,79 @@
+{
+  "root": "$",
+  "rules": [
+    {
+      "path": "$.case_info.id",
+      "interpretation": "AsString",
+      "target": "caseId"
+    },
+    {
+      "path": "$.case_info.title",
+      "interpretation": "AsString",
+      "target": "title"
+    },
+    {
+      "path": "$.case_info.url",
+      "interpretation": "AsString",
+      "target": "url"
+    },
+    {
+      "path": "$.case_info.speciality",
+      "interpretation": "AsString",
+      "target": "speciality"
+    },
+    {
+      "path": "$.creator_info.date_joined",
+      "interpretation": "AsString",
+      "target": "creator_joined"
+    },
+    {
+      "path": "$.creator_info.specialty",
+      "interpretation": "AsString",
+      "target": "creator_specialty"
+    },
+    {
+      "path": "$.creator_info.seniority",
+      "interpretation": "AsString",
+      "target": "creator_seniority"
+    },
+    {
+      "path": "$.creator_info.country",
+      "interpretation": "AsString",
+      "target": "creator_country"
+    },
+    {
+      "path": "$.creator_info.institution",
+      "interpretation": "AsString",
+      "target": "creator_institution"
+    },
+    {
+      "path": "$.users_solves",
+      "interpretation": "IterateListItems",
+      "target": "users_solves",
+      "children": [
+        {
+          "path": "$.solver_id",
+          "interpretation": "AsString",
+          "target": "solver_user_id"
+        },
+        {
+          "path": "$.attempts",
+          "interpretation": "IterateListItems",
+          "target": "attempts",
+          "children": [
+            {
+              "path": "$.attempt_id",
+              "interpretation": "AsString",
+              "target": "solve_attempt_id"
+            },
+            {
+              "path": "$.attempt_timestamp",
+              "interpretation": "AsString",
+              "target": "solve_attempt_timestamp"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

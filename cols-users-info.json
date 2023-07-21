@@ -1,0 +1,82 @@
+{
+  "root": "$",
+  "rules": [
+    {
+      "path": "$.case_info.id",
+      "interpretation": "AsString",
+      "target": "case_id"
+    },
+    {
+      "path": "$.case_info.title",
+      "interpretation": "AsString",
+      "target": "case_title"
+    },
+    {
+      "path": "$.case_info.url",
+      "interpretation": "AsString",
+      "target": "case_url"
+    },
+    {
+      "path": "$.creator_info.date_joined",
+      "interpretation": "AsString",
+      "target": "creator_joined"
+    },
+    {
+      "path": "$.creator_info.specialty",
+      "interpretation": "AsString",
+      "target": "creator_specialty"
+    },
+    {
+      "path": "$.creator_info.seniority",
+      "interpretation": "AsString",
+      "target": "creator_seniority"
+    },
+    {
+      "path": "$.creator_info.country",
+      "interpretation": "AsString",
+      "target": "creator_country"
+    },
+    {
+      "path": "$.creator_info.institution",
+      "interpretation": "AsString",
+      "target": "creator_institution"
+    },
+    {
+      "path": "$.users_info",
+      "interpretation": "IteratePropertiesAsList",
+      "target": "users",
+      "children": [
+        {
+          "path": "${id}",
+          "interpretation": "AsString",
+          "target": "user_id"
+        },
+        {
+          "path": "$.date_joined",
+          "interpretation": "AsString",
+          "target": "user_joined"
+        },
+        {
+          "path": "$.speciality",
+          "interpretation": "AsString",
+          "target": "user_speciality"
+        },
+        {
+          "path": "$.seniority",
+          "interpretation": "AsString",
+          "target": "user_seniority"
+        },
+        {
+          "path": "$.country",
+          "interpretation": "AsString",
+          "target": "user_country"
+        },
+        {
+          "path": "$.institution",
+          "interpretation": "AsString",
+          "target": "user_institution"
+        }
+      ]
+    }
+  ]
+}
