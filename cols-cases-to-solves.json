@@ -47,6 +47,25 @@
       "target": "creator_institution"
     },
     {
+      "path": "$",
+      "interpretation": "AsAggregateCount",
+      "target": "users_on_this_case_count",
+      "children": [
+        {
+          "path": "$.users_solves",
+          "interpretation": "IterateListItems",
+          "target": "users_solves_counting",
+          "children": [
+            {
+              "path": "$.solver_id",
+              "interpretation": "AsString",
+              "target": "countable_user_id"
+            }
+          ]
+        }
+      ]
+    },
+    {
       "path": "$.users_solves",
       "interpretation": "IterateListItems",
       "target": "users_solves",
@@ -55,6 +74,25 @@
           "path": "$.solver_id",
           "interpretation": "AsString",
           "target": "solver_user_id"
+        },
+        {
+          "path": "$",
+          "interpretation": "AsAggregateCount",
+          "target": "user_attempts_count",
+          "children": [
+            {
+              "path": "$.attempts",
+              "interpretation": "IterateListItems",
+              "target": "attempts",
+              "children": [
+                {
+                  "path": "$.attempt_id",
+                  "interpretation": "AsString",
+                  "target": "solve_attempt_id"
+                }
+              ]
+            }
+          ]
         },
         {
           "path": "$.attempts",

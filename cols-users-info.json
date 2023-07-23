@@ -47,8 +47,8 @@
       "target": "users",
       "children": [
         {
-          "path": "${id}",
-          "interpretation": "AsString",
+          "path": "$",
+          "interpretation": "AsIndex",
           "target": "user_id"
         },
         {

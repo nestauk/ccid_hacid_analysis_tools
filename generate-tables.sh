@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # defaults
-JSON_TO_SMART_CSV=JsonToSmartCsv-0.2-release/osx-x64/JsonToSmartCsv
+JSON_TO_SMART_CSV=JsonToSmartCsv-0.4-release/osx-x64/JsonToSmartCsv
 INPUT_DIRECTORY=sample-data
 OUTPUT_DIRECTORY=sample-output
 
@@ -16,7 +16,10 @@ if [[ ! -d "$INPUT_DIRECTORY" ]]; then
    exit 1
 fi
 
+echo "Removing previously generated tables..."
 rm -f $OUTPUT_DIRECTORY/*
+
+echo "Generating tables..."
 for SOURCE_FILE in $INPUT_DIRECTORY/*.json; do
    echo "Processing $SOURCE_FILE..."
    $JSON_TO_SMART_CSV --source $SOURCE_FILE --columns cols-cases-to-solves.json --target $OUTPUT_DIRECTORY/cases-to-solves.csv --mode Append

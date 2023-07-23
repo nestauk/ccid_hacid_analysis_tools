@@ -3,3 +3,4 @@ data/
 output/
 sample-data/
 sample-output/
+.DS_Store
